@@ -5,7 +5,7 @@ const Form = ({ tasks, setTasks }) => {
     <form onSubmit={event => createNewTask(event, tasks, setTasks)}>
       <input
         type='text'
-        name='task'
+        name='bego'
       />
     </form>
   );
@@ -14,10 +14,12 @@ const Form = ({ tasks, setTasks }) => {
 const createNewTask = (event, tasks, setTasks) => {
   event.preventDefault();
 
+  console.log(event.target);
+
   const newTask = {
     id: v4(),
     // Accedo al value del input a través de su name
-    taskName: event.target.task.value,
+    taskName: event.target.bego.value,
     completed: false
   };
 

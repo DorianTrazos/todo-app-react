@@ -8,9 +8,14 @@ const MainContainer = () => {
     {
       id: v4(),
       taskName: 'Buy a house',
-      completed: false
+      completed: true
     }
   ]);
+
+  const [filterActive, setFilterActive] = useState('all');
+
+  // filtrar
+  const filteredTasks = filterTasks();
 
   return (
     <>
@@ -22,5 +27,7 @@ const MainContainer = () => {
     </>
   );
 };
+
+const filterTasks = () => {};
 
 export default MainContainer;
