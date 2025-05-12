@@ -12,7 +12,13 @@ const Tasks = ({ tasks, setTasks }) => {
             }}
           />
           <label htmlFor={task.id}>{task.taskName}</label>
-          <button>DELETE</button>
+          <button
+            onClick={() => {
+              deleteTasks(task.id, tasks, setTasks);
+            }}
+          >
+            DELETE
+          </button>
         </div>
       ))}
     </div>
@@ -20,15 +26,16 @@ const Tasks = ({ tasks, setTasks }) => {
 };
 
 const completeTask = (id, tasks, setTasks) => {
-  //Buscar la tarea para completar
-  // Cambias de true/false
-  //Actualizas las tareas
+  const taskFound = tasks.find(task => task.id === id);
+  taskFound.completed = !taskFound.completed;
+
+  setTasks([...tasks]);
 };
 
 const deleteTasks = (id, tasks, setTasks) => {
-  //Buscar la tarea para completar
-  // Eliminas la tarea
-  //Actualizas las tareas
+  const taskUpdated = tasks.filter(task => task.id !== id);
+
+  setTasks(taskUpdated);
 };
 
 export default Tasks;
