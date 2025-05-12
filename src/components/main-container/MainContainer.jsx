@@ -49,13 +49,11 @@ const getItemsLeft = tasks => {
 
   const itemsLeft = tasks.filter(task => !task.completed).length;
 
-  console.log(itemsLeft);
-
   if (itemsLeft === 0) {
     return 'All tasks completed!';
   }
 
-  return `Items left: ${itemsLeft}`;
+  return `${itemsLeft} items left`;
 };
 
 export default MainContainer;
